@@ -1,0 +1,25 @@
+{
+    "editor.fontSize": 14,
+    "window.zoomLevel": 0.5,
+    "terminal.integrated.fontSize": 14,
+    "workbench.iconTheme": "vscode-icons",
+    "editor.cursorBlinking": "expand",
+    "editor.minimap.enabled": false,
+    "editor.wordWrap": "on",
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": "comment",
+                "settings": {
+                    
+                    "fontStyle": "italic"
+                }
+            }
+        ]
+    },
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "[markdown]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true
+    },
+}
