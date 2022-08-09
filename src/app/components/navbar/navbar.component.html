@@ -35,7 +35,6 @@
   (click)="logout()"
   *ngIf="isLoggedIn"
     mat-icon-button 
-
     class="example-icon favorite-icon ml10 mr20" 
     aria-label="Example icon-button with heart icon"
     >
@@ -43,10 +42,12 @@
   </a>
   
   <a 
-    *ngIf="isLoggedIn && user"
-    mat-icon-button 
-    style="margin-right:50px ;"
-    class="example-icon favorite-icon ml20 mr20" 
+  *ngIf="isLoggedIn && user"
+  
+  style="margin-right: 50px;"
+  mat-icon-button 
+  routerLink="/admin/profile"
+    class="example-icon favorite-icon ml20" 
     aria-label="Example icon-button with heart icon"
     >
     <!-- {{ login.getUser().username }} -->
