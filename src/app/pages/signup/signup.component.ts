@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private userService:UserService, private snack: MatSnackBar) { }
+  constructor(private userService:UserService, private _snack: MatSnackBar) { }
 
   public user={
     username:'',
@@ -28,7 +28,7 @@ export class SignupComponent implements OnInit {
     console.log(this.user)
     if(this.user.username == '' || this.user.username == null){
       // alert('User is reqired')
-      this.snack.open("Username is required !","", {
+      this._snack.open("Username is required !","", {
         duration: 3000,
         verticalPosition: 'top',
         horizontalPosition: 'center',
@@ -47,7 +47,7 @@ export class SignupComponent implements OnInit {
         // alert('something went wrong')
         // this.snack.open('something went wrong !','',{
           // duration: 3000,
-        this.snack.open(error.error.text,'',{
+        this._snack.open(error.error.text,'',{
           duration: 3000,
         })
 
