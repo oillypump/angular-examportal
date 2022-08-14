@@ -18,9 +18,10 @@
         <button mat-flat-button color="basic" class="ml10">Questions: {{ q.numberOfQuestion }}</button>
         <button mat-stroked-button color="primary" class="ml10">Update</button>
         <button mat-stroked-button color="primary" class="ml10">Attemps</button>
+        <button mat-flat-button color="primary" class="ml10" (click)="deleteQuiz(q.qId)">Delete</button>
     </mat-card-actions>
 </mat-card>
 
 <div class="container text-center mt20">
-    <button mat-raised-button>Add New Quiz</button>
+    <button routerLink="/admin/add-quiz" mat-raised-button>Add New Quiz</button>
 </div>

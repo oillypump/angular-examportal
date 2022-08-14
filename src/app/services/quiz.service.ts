@@ -1,4 +1,4 @@
-  import { HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import baseUrl from './helper';
 
@@ -12,4 +12,15 @@ export class QuizService {
   public quizzes() {
     return this._http.get(`${baseUrl}/quiz/`)
   }
+
+  // add quiz function
+  public addQuiz(quiz:any){
+    return this._http.post(`${baseUrl}/quiz/`,quiz);
+  }
+
+  public deleteQuiz(qId:any){
+    return this._http.delete(`${baseUrl}/quiz/${qId}`)
+  }
+   
+
 }
