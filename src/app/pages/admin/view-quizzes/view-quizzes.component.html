@@ -15,8 +15,13 @@
     <mat-card-actions>
         <button mat-stroked-button color="primary">Questions</button>
         <button mat-flat-button color="basic" class="ml10">Max Marks: {{q.maxMarks}}</button>
-        <button mat-flat-button color="basic" class="ml10">Questions: {{ q.numberOfQuestion }}</button>
-        <button mat-stroked-button color="primary" class="ml10">Update</button>
+        <button mat-flat-button color="basic" class="ml10">Questions: {{ q.numberOfQuestions }}</button>
+        <button 
+            [routerLink]="'/admin/quiz/' + q.qId" 
+            mat-stroked-button color="primary" 
+            class="ml10"
+            >Update
+        </button>
         <button mat-stroked-button color="primary" class="ml10">Attemps</button>
         <button mat-flat-button color="primary" class="ml10" (click)="deleteQuiz(q.qId)">Delete</button>
     </mat-card-actions>
