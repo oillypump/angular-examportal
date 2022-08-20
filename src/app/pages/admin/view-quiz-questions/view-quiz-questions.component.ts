@@ -15,7 +15,7 @@ export class ViewQuizQuestionsComponent implements OnInit {
 
   constructor(
     private _route: ActivatedRoute,
-    private _question:QuestionsService
+    private _question: QuestionsService
  
   ) { }
 

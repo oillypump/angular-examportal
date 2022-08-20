@@ -15,3 +15,4 @@ export class QuestionsService {
     return this._http.get(`${baseUrl}/question/quiz/${qid}`)
   }
 }
+ 
