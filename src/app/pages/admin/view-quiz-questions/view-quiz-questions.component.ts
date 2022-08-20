@@ -15,8 +15,7 @@ export class ViewQuizQuestionsComponent implements OnInit {
 
   constructor(
     private _route: ActivatedRoute,
-    private _question: QuestionsService
- 
+    private _question: QuestionsService 
   ) { }
 
   ngOnInit(): void {
@@ -32,8 +31,5 @@ export class ViewQuizQuestionsComponent implements OnInit {
         
       }
     )
-    console.log(this.qId)
-    console.log(this.qTitle)
   }
-
 }
