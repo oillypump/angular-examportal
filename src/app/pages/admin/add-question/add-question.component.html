@@ -12,7 +12,7 @@
                     <form (ngSubmit)="formSubmit()" class="mt20">
 
                         <!-- content field -->
-                        <mat-form-field class="w100">
+                        <!-- <mat-form-field class="w100">
                             <mat-label>Write question content</mat-label>
                             <textarea 
                                 required
@@ -23,7 +23,18 @@
                                 placeholder="Enter here"
                                 >
                             </textarea>
-                        </mat-form-field>
+                        </mat-form-field> -->
+
+
+                        <ckeditor 
+                            [editor]="Editor" 
+                            data="<p>Write your question here</p>"
+                            name="content"
+                            [(ngModel)]="question.content"
+                            >
+                        </ckeditor>
+
+
 
                         <!-- options -->
                         <div class="row">
