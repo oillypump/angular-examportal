@@ -41,18 +41,17 @@
     Logout
   </a>
   
-  <a 
-  *ngIf="isLoggedIn && user"
-  
-  style="margin-right: 50px;"
-  mat-icon-button 
-  routerLink="/admin/profile"
+  <button
+    *ngIf="isLoggedIn && user"
+    style="margin-right: 50px;"
+    mat-icon-button 
     class="example-icon favorite-icon ml20" 
     aria-label="Example icon-button with heart icon"
     >
+    <!-- routerLink="/admin/profile" -->
     <!-- {{ login.getUser().username }} -->
     {{ user.username }}
-  </a>
+  </button>
 
   
 
