@@ -19,8 +19,6 @@ export class QuestionsService {
     return this._http.get(`${baseUrl}/question/quiz/${qid}`)
   }
 
-
-
   // add question
   public addQuestion(question:any) {
     return this._http.post(`${baseUrl}/question/`, question)
@@ -30,6 +28,9 @@ export class QuestionsService {
   public deleteQuestion(questionId:any) {
     return this._http.delete(`${baseUrl}/question/${questionId}`)
   }
-  
+ 
+  public evalQuiz(questions:any) {
+    return this._http.post(`${baseUrl}/question/eval-quiz`,questions)
+  }
 }
  

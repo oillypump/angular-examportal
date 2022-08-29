@@ -44,10 +44,10 @@ export class StartComponent implements OnInit {
 
         this.timer = this.questions.length * 2 * 60
         
-        console.log(this.timer)
-        this.questions.forEach((q:any) => {
-          q['givenAnswer'] = ''
-        })
+        // console.log(this.timer)
+        // this.questions.forEach((q:any) => {
+        //   q['givenAnswer'] = ''
+        // })
         console.log(this.questions)
         this.startTimer()
       },
@@ -123,6 +123,25 @@ export class StartComponent implements OnInit {
   }
 
   evalQuiz() {
-     
+    // calculation
+
+    // call to server to check questions
+
+     this._questionService.evalQuiz(this.questions).subscribe(
+      (data:any) => {
+        console.log(data)
+        this.marksGot = parseFloat(Number(data.marksGot).toFixed(2))
+        this.correctAnswer = data.correctAnswer
+        this.attempted = data.attempted
+        this.isSubmit = true
+      },
+      (error) => {
+        console.log(error)
+      }
+     )
+  }
+
+  printPage() {
+    window.print()
   }
 }

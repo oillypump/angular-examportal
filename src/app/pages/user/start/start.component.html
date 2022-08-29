@@ -1,7 +1,6 @@
 <div class="bootstrap-wrapper" *ngIf="!isSubmit">
     <div class="container-fluid">
-        <div class="row">
-            
+        <div class="row">            
             <div class="col-md-2">
                 <!-- instrurction -->
                 <mat-card-content>
@@ -128,8 +127,18 @@
                     <h1 class="text-center">Questions Attempted : {{ attempted }}</h1>
                 </mat-card-content>
                 <mat-card-actions class="container text-center">
-                        <button mat-raised-button color="primary">Print</button>
-                        <button mat-raised-button color="primary" [routerLink]="'/user-dashboard/0'">Home</button>
+                        <button 
+                            mat-raised-button color="primary"
+                            (click)="printPage()"
+                            >
+                            Print
+                        </button>
+                        <button 
+                            mat-raised-button color="primary" 
+                            [routerLink]="'/user-dashboard/0'"
+                            >
+                            Home
+                        </button>
                 </mat-card-actions>
             </mat-card>
         </div>
