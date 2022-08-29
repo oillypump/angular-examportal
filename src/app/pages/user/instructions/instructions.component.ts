@@ -43,7 +43,7 @@ export class InstructionsComponent implements OnInit {
 
       showCancelButton: true,
       confirmButtonText: 'Start',
-      denyButtonText: `Don't save`,
+
       icon:'info'
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */

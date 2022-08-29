@@ -1,4 +1,4 @@
-<div class="bootstrap-wrapper">
+<div class="bootstrap-wrapper" *ngIf="!isSubmit">
     <div class="container-fluid">
         <div class="row">
             
@@ -33,35 +33,105 @@
                         <br>
                         <div class="row mt20">
                             <div class="col-md-6">
-                                <input type="radio" [value]="q.option1" [name]="i" > {{q.option1}}
+                                <input 
+                                    type="radio" 
+                                    [value]="q.option1" 
+                                    name={{i}} 
+                                    [(ngModel)]="q.givenAnswer" 
+                                    /> 
+                                {{q.option1}}
                             </div>
                             <div class="col-md-6">
-                                <input type="radio" [value]="q.option2" [name]="i" > {{q.option2}}
-                                
+                                <input 
+                                    type="radio" 
+                                    [value]="q.option2" 
+                                    name={{i}} 
+                                    [(ngModel)]="q.givenAnswer" 
+                                > 
+                                {{q.option2}}                                    
                             </div>
-                        </div>
-                        
+                        </div>                            
                         <div class="row mt20 ">
                             <div class="col-md-6">
-                                <input type="radio" [value]="q.option4" [name]="i" > {{q.option3}}
-                                
-                            </div>
-                            <div class="col-md-6">
-                                <input type="radio" [value]="q.option4" [name]="i" > {{q.option4}}
-                                
+                                <input 
+                                    type="radio" 
+                                    [value]="q.option3" 
+                                    name={{i}} 
+                                    [(ngModel)]="q.givenAnswer"
+                                > 
+                                {{q.option3}}
+                                </div>
+                                <div class="col-md-6">
+                                    <input 
+                                    type="radio" 
+                                    [value]="q.option4" 
+                                    name={{i}} 
+                                    [(ngModel)]="q.givenAnswer"
+                                >  
+                                {{q.option4}}                            
                             </div>
                         </div>
                     </mat-card-content>
                 </mat-card>
 
                 <div class="container text-center">
-                    <button mat-raised-button class="mt10 mb20">Submit Quiz</button>
+                    <button 
+                        (click)="submitQuiz()"
+                        mat-raised-button class="mt10 mb20"
+                    >
+                    Submit Quiz
+                    </button>
                 </div>
-
             </div>
             <div class="col-md-2">
                 <!-- progress -->
+                <mat-card style="margin-top: 70px;">
+                    <mat-card-header>
+                        <mat-card-title>
+                            Progress
+                        </mat-card-title>
+                        <mat-card-subtitle>
+                            Quiz will automatically submitted where timer reaches to <b>0:0</b>
+                        </mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <h1 class="text-center">{{ getFormattedTimer() }}</h1>
+                        <mat-spinner 
+                            mode="determinate" 
+                            color="accent" 
+                            style="margin: auto;"
+                            [value]="(timer / (this.questions.length * 2 * 60)) * 100"
+                            >
+                        </mat-spinner>
+                    </mat-card-content>
+                </mat-card>
             </div>
+        </div>
+    </div>
+</div>
+
+<!-- show the result -->
+
+<div class="bootstrap-wrapper" *ngIf="isSubmit">
+    <div class="row mt20">
+        <div class="col-md-6 offset-md-3">
+
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>
+                        Quiz Result
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <h1 class="text-center">Marks Got : {{ marksGot }}</h1>
+                    <h1 class="text-center">Correct Answer : {{ correctAnswer }}</h1>
+                    <h1 class="text-center">Questions Attempted : {{ attempted }}</h1>
+                </mat-card-content>
+                <mat-card-actions class="container text-center">
+                        <button mat-raised-button color="primary">Print</button>
+                        <button mat-raised-button color="primary" [routerLink]="'/user-dashboard/0'">Home</button>
+                </mat-card-actions>
+            </mat-card>
         </div>
     </div>
 </div>
